@@ -36,7 +36,7 @@ class PlayGameSpec extends FreeSpec with Matchers {
   }
 
   "Given the token is on square 97" - {
-    val game97 = movePlayerOf(GameWithOnePlayerAndSimpleBoard, Player_1, 97)
+    val game97 = movePlayerOf(GameWithOnePlayerAndSimpleBoard, Player_1, 96)
     "When the token is moved 3 spaces" - {
       val game100 = movePlayerOf(game97, Player_1, 3)
       "Then the token is on square 100" in {
@@ -81,7 +81,7 @@ class PlayGameSpec extends FreeSpec with Matchers {
       }
     }
     "When the token lands on square 12" - {
-      val game = movePlayerOf(GameWithMultiplePlayersAndBoardWithSnake, Player_2, 11)
+      val game = movePlayerOf(GameWithMultiplePlayersAndBoardWithLadder, Player_2, 11)
       "Then the token is on square 12" in {
         game.players.get(Player_2.id).head.square shouldBe 12
       }
