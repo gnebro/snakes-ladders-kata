@@ -10,7 +10,10 @@ package object model {
   case object Finished extends Status
 
   // Snakes and Ladders
-  sealed abstract class Bridge(val from: Int, val to: Int)
+  sealed abstract class Bridge(val from: Int, val to: Int) {
+    require(to <=100 && to >= 1, "Bridges cannot extend outside the board: to")
+    require(from <=100 && from >= 1, "Bridges cannot extend outside the board: to")
+  }
 
   final case class Snake(override val from: Int, override val to: Int) extends Bridge(from, to) {
     require(to < from, "Snakes can not take forward")
